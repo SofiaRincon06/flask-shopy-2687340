@@ -1,13 +1,15 @@
-{%  extendes 'boostrap/base.html' %} 
-{% import 'boostrap/wtf.html' %}
-{%  block head %}
-{{ soper () }}
-{% ebdblock %}
+{% extends 'bootstrap/base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
 
-{%block body%}
-    <h1>Nuevo Producto: </h1>
+{%block head%}
+{{super()}}
+{% endblock %}
+
+{%block body %}
+    <h1>Nuevos productos</h1>
     <form action=""
-        method="POST">
+    method ="POST" novalidate
+    enctype="multipart/form-data">
+    {{wtf.quick_form(form)}}
     </form>
-    
-{%endblock}
+{%endblock%}
